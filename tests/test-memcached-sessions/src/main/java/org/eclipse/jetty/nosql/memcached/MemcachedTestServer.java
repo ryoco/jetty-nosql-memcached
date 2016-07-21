@@ -55,14 +55,15 @@ public class MemcachedTestServer extends AbstractTestServer
     public MemcachedTestServer(int port, int maxInactivePeriod, int scavengePeriod, String sessionIdMgrConfig) {
         super(port, maxInactivePeriod, scavengePeriod, sessionIdMgrConfig);
     }
-    
+
     public MemcachedTestServer(int port, int maxInactivePeriod, int scavengePeriod, boolean saveAllAttributes)
     {
         this(port, maxInactivePeriod, scavengePeriod);
         _saveAllAttributes = saveAllAttributes;
     }
 
-    public SessionIdManager newSessionIdManager(Object config)
+    @Override
+    public SessionIdManager newSessionIdManager(String config)
     {
         String configString;
         if (config == null) {
