@@ -24,7 +24,7 @@ public class XStreamTranscoder implements ISerializationTranscoder {
   public byte[] encode(Object obj) throws TranscoderException {
     byte[] raw = null;
     try {
-      raw = xstream.toXML(obj).getBytes("UTF-8");
+      raw = xstream.toXML(obj).getBytes("ISO-8859-1");
     } catch (Exception error) {
       throw(new TranscoderException(error));
     }
@@ -35,7 +35,7 @@ public class XStreamTranscoder implements ISerializationTranscoder {
   public <T> T decode(byte[] raw, Class<T> klass) throws TranscoderException {
     T obj = null;
     try {
-      obj = (T) xstream.fromXML(new String(raw, "UTF-8"));
+      obj = (T) xstream.fromXML(new String(raw, "ISO-8859-1"));
     } catch (Exception error) {
       throw(new TranscoderException(error));
     }
