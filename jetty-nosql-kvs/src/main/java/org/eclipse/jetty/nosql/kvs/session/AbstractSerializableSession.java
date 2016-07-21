@@ -73,6 +73,7 @@ public abstract class AbstractSerializableSession implements ISerializableSessio
 				", accessed:" + getAccessed() +
 				", attributes:" + getAttributeMap() +
 				", invalidated:" + getInvalidated() +
+				", version:" + getVersion() +
 		"}";
 	}
 
